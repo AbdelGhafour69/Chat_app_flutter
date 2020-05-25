@@ -91,7 +91,7 @@ class _DialogState extends State<Dialog> {
                   decoration: new InputDecoration(
                     focusColor: greeny,
                     hoverColor: greeny,
-                    labelText: "Email",
+                    labelText: "User ID",
                     fillColor: Colors.black,
                     border: new OutlineInputBorder(
                       borderRadius: new BorderRadius.circular(15.0),
