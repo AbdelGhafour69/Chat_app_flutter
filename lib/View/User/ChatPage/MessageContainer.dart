@@ -98,6 +98,7 @@ class Recieved extends StatelessWidget {
         children: <Widget>[
           CircleAvatar(
             backgroundColor: Colors.red,
+            backgroundImage: AssetImage("lib/assets/ll.jpg"),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

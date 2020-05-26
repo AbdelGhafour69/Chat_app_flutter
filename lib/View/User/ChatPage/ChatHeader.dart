@@ -14,6 +14,7 @@ class ChatHeader extends StatelessWidget {
       child: ListTile(
         leading: CircleAvatar(
           backgroundColor: Colors.red,
+          backgroundImage: AssetImage("lib/assets/ll.jpg"),
         ),
         title: Text(other.name),
         subtitle: StreamBuilder(
