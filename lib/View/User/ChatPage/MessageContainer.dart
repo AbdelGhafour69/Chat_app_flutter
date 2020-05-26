@@ -34,7 +34,7 @@ class Sent extends StatelessWidget {
           ":" +
           msg.sent.toDate().minute.toString();
     } else {
-      return days[msg.sent.toDate().weekday-1];
+      return days[msg.sent.toDate().weekday - 1];
     }
   }
 
@@ -49,15 +49,16 @@ class Sent extends StatelessWidget {
             padding: EdgeInsets.only(top: 10, left: 15, right: 15, bottom: 10),
             width: 200,
             decoration: BoxDecoration(
-                color: bluewy,
-                borderRadius: BorderRadiusDirectional.circular(10)),
+              color: bluewy,
+              borderRadius: BorderRadiusDirectional.circular(10),
+            ),
             child: Text(
               msg.message,
               style: mymessage,
             ),
           ),
           Container(
-            margin: EdgeInsets.only(right:15,top:5),
+            margin: EdgeInsets.only(right: 15, top: 5),
             child: Text(
               gettext(),
             ),
@@ -86,7 +87,7 @@ class Recieved extends StatelessWidget {
           ":" +
           msg.sent.toDate().minute.toString();
     } else {
-      return days[msg.sent.toDate().weekday-1];
+      return days[msg.sent.toDate().weekday - 1];
     }
   }
 
@@ -104,8 +105,9 @@ class Recieved extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Container(
-                margin: EdgeInsets.only(bottom:5,left: 20),
-                padding:EdgeInsets.only(top: 10, left: 15, right: 15, bottom: 10),
+                margin: EdgeInsets.only(bottom: 5, left: 20),
+                padding:
+                    EdgeInsets.only(top: 10, left: 15, right: 15, bottom: 10),
                 width: 200,
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -116,7 +118,7 @@ class Recieved extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(left:20),
+                margin: EdgeInsets.only(left: 20),
                 child: Text(
                   gettext(),
                 ),

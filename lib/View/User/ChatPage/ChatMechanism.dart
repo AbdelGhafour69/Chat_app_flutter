@@ -119,13 +119,13 @@ class _ChatMechanismState extends State<ChatMechanism> {
                   ),
                 ),
               ),
-              // IconButton(
-              //   icon: Icon(Icons.arrow_downward,color: greeny,),
-              //   iconSize: 20,
-              //   onPressed: (){
-              //     scrollController.jumpTo(scrollController.position.maxScrollExtent + 50);
-              //   },
-              // ),
+              IconButton(
+                icon: Icon(Icons.arrow_downward,color: greeny,),
+                iconSize: 20,
+                onPressed: (){
+                  scrollController.jumpTo(scrollController.position.maxScrollExtent + 50);
+                },
+              ),
             ],
           ),
         ),
