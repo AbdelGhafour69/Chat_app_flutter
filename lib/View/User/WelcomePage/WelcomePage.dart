@@ -15,7 +15,19 @@ class WelcomePAge extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(100),
-        child: MyAppbar(),
+        child: Column(
+          children: <Widget>[
+            MyAppbar(),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text("Your ID is : "),
+                SelectableText(user.user.user.uid),
+              ],
+            )
+          ],
+        ),
       ),
       body: Conversations(),
       floatingActionButton: Container(
@@ -110,7 +122,7 @@ class _DialogState extends State<Dialog> {
               color: greeny,
               onPressed: () {
                 key.currentState.save();
-                startConversation(email,context);
+                startConversation(email, context);
               },
               child: Text(
                 "Submit",

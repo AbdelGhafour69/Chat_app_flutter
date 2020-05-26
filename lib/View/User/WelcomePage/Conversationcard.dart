@@ -38,9 +38,7 @@ class _ConversationcardState extends State<Conversationcard> {
   ];
   String gettext(Timestamp cv) {
     if (cv.toDate().weekday == Timestamp.now().toDate().weekday) {
-      return cv.toDate().hour.toString() +
-          ":" +
-          cv.toDate().minute.toString();
+      return cv.toDate().hour.toString() + ":" + cv.toDate().minute.toString();
     } else {
       return days[cv.toDate().weekday - 1];
     }
@@ -51,39 +49,45 @@ class _ConversationcardState extends State<Conversationcard> {
     final userinfo = Provider.of<UserProvider>(context);
     return loading
         ? ListTile()
-        : GestureDetector(
-            onTap: () {
-              gotochatpage(context, convo.id, other);
-            },
-            child: StreamBuilder(
-              stream: Firestore.instance
-                  .collection("User")
-                  .document(userinfo.user.user.uid)
-                  .collection("Conversations")
-                  .document(convo.id)
-                  .snapshots(),
-              builder: (context, snapshot) {
-                if (snapshot.data == null) return ListTile();
-                return ListTile(
-                  leading: CircleAvatar(
-                    child: Container(
-                      color: Colors.red,
+        : StreamBuilder(
+            stream: Firestore.instance
+                .collection("User")
+                .document(userinfo.user.user.uid)
+                .collection("Conversations")
+                .document(convo.id)
+                .snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.data == null) return ListTile();
+              return Column(
+                children: <Widget>[
+                  ListTile(
+                    onTap: () {
+                      gotochatpage(context, convo.id, other);
+                    },
+                    leading: CircleAvatar(
+                      backgroundImage: AssetImage("lib/assets/ll.jpg"),
+                    ),
+                    title: Text(
+                      other.name,
+                      style: other.status ? tilenameon : tilenameoff,
+                    ),
+                    subtitle: Text(
+                      snapshot.data["lastmessage"],
+                      overflow: TextOverflow.ellipsis,
+                      style: lastmessage,
+                    ),
+                    trailing: Text(
+                      gettext(snapshot.data["lastmodified"]),
                     ),
                   ),
-                  title: Text(
-                    other.name,
-                    style: other.status ? tilenameon : tilenameoff,
-                  ),
-                  subtitle: Text(
-                    snapshot.data["lastmessage"],
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  trailing: Text(
-                    gettext(snapshot.data["lastmodified"]),
-                  ),
-                );
-              },
-            ),
+                  Container(
+                    height: 2,
+                    margin: EdgeInsets.only(left: 30, right: 30),
+                    color: greeny,
+                  )
+                ],
+              );
+            },
           );
   }
 

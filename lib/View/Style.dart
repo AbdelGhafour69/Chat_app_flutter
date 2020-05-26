@@ -32,15 +32,19 @@ TextStyle hismessage = TextStyle(
 );
 
 TextStyle tilenameoff = TextStyle(
-  fontFamily: font,
-  color: Colors.black,
-  fontSize: 15,
-  fontWeight: FontWeight.bold
-);
+    fontFamily: font,
+    color: Colors.black,
+    fontSize: 15,
+    fontWeight: FontWeight.bold);
 
 TextStyle tilenameon = TextStyle(
+    fontFamily: font,
+    color: Colors.green,
+    fontSize: 15,
+    fontWeight: FontWeight.bold);
+
+TextStyle lastmessage = TextStyle(
   fontFamily: font,
-  color: Colors.green,
-  fontSize: 15,
-  fontWeight: FontWeight.bold
+  color: Colors.black,
+  fontSize: 16,
 );
